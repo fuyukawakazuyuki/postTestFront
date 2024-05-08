@@ -1,51 +1,17 @@
-# Next.js & NextUI Template
+# 새컴사고 진행한 next js 재활운동
+-새컴을 사고 다시 복귀한 next js 이번엔 nest js 를 이용해 간단한 로그인,회원가입,게시판 기능을 fullstack으로 내손으로 직접 만들어보려고한다.
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+#현재 완성한 기능
 
-## Technologies Used
+##FE(Next js)
+-ui는 Next UI를 이용해 구성
+-로그인페이지
+-회원가입페이지
+-dynamic route를 이용한 board와 post페이지
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
-
-## How to Use
-
-### Use the template with create-next-app
-
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+##BE(Nest js)
+-mysql 연결
+-prisma 연결
+-로그인
+-회원가입
+-prisma ORM을 이용한 board 와 post의 crud
