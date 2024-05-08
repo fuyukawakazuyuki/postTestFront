@@ -4,14 +4,14 @@
 #현재 완성한 기능
 
 ##FE(Next js)
--ui는 Next UI를 이용해 구성
--로그인페이지
--회원가입페이지
--dynamic route를 이용한 board와 post페이지
+-ui는 Next UI를 이용해 구성<br/>
+-로그인페이지<br/>
+-회원가입페이지<br/>
+-dynamic route를 이용한 board와 post페이지<br/>
 
 ##BE(Nest js)
--mysql 연결
--prisma 연결
--로그인
--회원가입
--prisma ORM을 이용한 board 와 post의 crud
+-mysql 연결<br/>
+-prisma 연결<br/>
+-로그인<br/>
+-회원가입<br/>
+-prisma ORM을 이용한 board 와 post의 crud<br/>
