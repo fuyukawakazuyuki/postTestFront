@@ -31,14 +31,20 @@ import {
 import { Logo } from "@/components/icons";
 import axios from "axios";
 import { use, useEffect, useState } from "react";
-import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/react";
+import {
+  Avatar,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from "@nextui-org/react";
 
 export const Navbar = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState({
-	name:"",
-	email:"",
-	image:""
+    name: "",
+    email: "",
+    image: "",
   });
 
   useEffect(() => {
@@ -47,19 +53,19 @@ export const Navbar = () => {
         const response = await fetch("https://127.0.0.1:8080/auth/user", {
           method: "GET",
           credentials: "include",
-        }).then(res => res.json())
-		console.log(response);
+        }).then((res) => res.json());
+        console.log(response);
         if (response.statusCode !== 401) {
           setIsAuth(true);
-		  setUser(response);
+          setUser(response);
+          return response;
         } else {
         }
       } catch (error) {
         console.log(error);
       }
     };
-	authCheck();
-
+    authCheck();
   }, []);
   return (
     <NextUINavbar maxWidth="xl" position="sticky" className="">
@@ -88,35 +94,37 @@ export const Navbar = () => {
         </ul>
       </NavbarContent>
       {isAuth ? (
-         <NavbarContent as="div" justify="end">
-		 <Dropdown placement="bottom-end">
-		   <DropdownTrigger>
-			 <Avatar
-			   isBordered
-			   as="button"
-			   className="transition-transform"
-			   color="secondary"
-			   name={user.name}
-			   size="sm"
-			   src={user.image}
-			 />
-		   </DropdownTrigger>
-		   <DropdownMenu aria-label="Profile Actions" variant="flat">
-			 <DropdownItem key="profile" className="h-14 gap-2">
-			   <p className="font-semibold">{user.name}님</p>
-			 </DropdownItem>
-			 <DropdownItem key="settings">My Settings</DropdownItem>
-			 <DropdownItem key="team_settings">Team Settings</DropdownItem>
-			 <DropdownItem key="analytics">Analytics</DropdownItem>
-			 <DropdownItem key="system">System</DropdownItem>
-			 <DropdownItem key="configurations">Configurations</DropdownItem>
-			 <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-			 <DropdownItem key="logout" color="danger">
-			   Log Out
-			 </DropdownItem>
-		   </DropdownMenu>
-		 </Dropdown>
-	   </NavbarContent>
+        <NavbarContent as="div" justify="end">
+          <Dropdown placement="bottom-end">
+            <DropdownTrigger>
+              <Avatar
+                isBordered
+                as="button"
+                className="transition-transform"
+                color="secondary"
+                name={user.name}
+                size="sm"
+                src={user.image}
+              />
+            </DropdownTrigger>
+            <DropdownMenu aria-label="Profile Actions" variant="flat">
+              <DropdownItem key="profile" className="h-14 gap-2">
+                <p className="font-semibold">{user.name}님</p>
+              </DropdownItem>
+              <DropdownItem key="settings">My Settings</DropdownItem>
+              <DropdownItem key="team_settings">Team Settings</DropdownItem>
+              <DropdownItem key="analytics">Analytics</DropdownItem>
+              <DropdownItem key="system">System</DropdownItem>
+              <DropdownItem key="configurations">Configurations</DropdownItem>
+              <DropdownItem key="help_and_feedback">
+                Help & Feedback
+              </DropdownItem>
+              <DropdownItem key="logout" color="danger">
+                Log Out
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </NavbarContent>
       ) : (
         <div className="flex gap-3 justify-end">
           <Link href="/signIn">
